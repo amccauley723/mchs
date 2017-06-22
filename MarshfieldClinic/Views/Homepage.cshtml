@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Homepage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+
+    <div class="container">
+        <img src="@Umbraco.Field("heroImage")" width="100%">
+        <p>@Umbraco.Field("mainCopy")</p>
+    </div>
+
+<h1>@Umbraco.Field("section1Title")</h1>

@@ -1,0 +1,57 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+    Layout = "Master.cshtml";
+}
+
+@section Head
+{
+    <style>
+        button.current { font-weight: 700; }
+    </style>
+}
+
+    <section class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                @{ Html.RenderAction("RenderSearchForm", "Search", new { docTypeAliases = "provider,providerType", fieldPropertyAliases = "nodeName,metaName,metaKeyWords,metaDescription,contentGrid,specialties", pageSize = 10, pagingGroupSize = 3 }); }
+            </div>
+        </div>
+    </section>
+
+@section ScriptsBottom{
+    <script src="/scripts/jquery.validate.min.js"></script>
+    <script src="/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script type="text/javascript">
+
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function () {
+                var context = this, args = arguments;
+                var later = function () {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+
+        $(document).on("click", "#submit-button", function (e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            $(form).submit();
+        })
+
+        $(document).on("keyup", "#SearchTerm", debounce(function (e) {
+            e.preventDefault();
+            var form = $(e.target).closest('form');
+            $(form).submit();
+        }, 300))
+
+    </script>
+}

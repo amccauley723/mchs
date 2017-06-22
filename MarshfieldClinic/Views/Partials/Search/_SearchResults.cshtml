@@ -1,0 +1,60 @@
+﻿@inherits UmbracoViewPage<MarshfieldClinic.Models.SearchResultsModel>
+
+@if (Model != null)
+{
+    if (Model.HasResults)
+    {
+        <p>Your search for <strong>@Model.SearchTerm</strong> returned @Model.TotalItemCount result@(Model.TotalItemCount != 1 ? "s" : null)</p>
+
+        <div class="row">
+            <div class="col-xs-12">
+                @RenderPagingButtons(Model.PagingBounds, Model.PageNumber, Model.PageCount)
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (IPublishedContent result in Model.Results)
+            {
+                <div class="col-xs-12">
+                    <a href="@(result.Url)" target="_blank">@(result.Name)</a>
+                    <p>@(result.GetPropertyValue<string>("metaDescription"))</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No results to display</p>
+    }
+}
+
+@helper RenderPagingButtons(MarshfieldClinic.Models.PagingBoundsModel pagingBounds, int pageNumber, int pageCount)
+{
+if (pagingBounds.ShowFirstButton)
+{
+        <button name="page-1">First</button>
+}
+
+if (pageNumber > 1)
+{
+        <button name="page-@(pageNumber - 1)">Prev</button>
+}
+
+if (pagingBounds.StartPage != pagingBounds.EndPage)
+{
+    for (int i = pagingBounds.StartPage; i <= pagingBounds.EndPage; i++)
+    {
+            <button name="page-@i" class="@(i == pageNumber ? "current" : null)">@i</button>
+    }
+}
+
+if (pageNumber < pageCount)
+{
+        <button name="page-@(pageNumber + 1)">Next</button>
+}
+
+if (pagingBounds.ShowLastButton)
+{
+        <button name="page-@(pageCount)">Last</button>
+}
+}

@@ -1,0 +1,587 @@
+@charset "UTF-8";
+/* CSS Document */
+.locDrop {
+	position:fixed !important;
+	top:110px !important;
+	left:0px;
+	width:100%;
+	background-color: #464749;
+	filter:alpha(opacity=97); /* IE Proprietary */
+	opacity: 0.97; /* CSS3 Standard */
+	-moz-opacity:0.97; /* Mozilla Property */
+	/*background:url(/_layouts/15/images/marshfieldpws/menu_bg.png) repeat #333;*/
+	z-index:1100;
+	-webkit-box-shadow: 0px 5px 8px rgba(50, 50, 50, 0.3);
+	-moz-box-shadow:    0px 5px 8px rgba(50, 50, 50, 0.3);
+	box-shadow:         0px 5px 8px rgba(50, 50, 50, 0.3);
+	text-align:center;
+	outline:0;
+	margin:0;
+	padding:0;
+	display:none;
+}              
+
+a.clinicFamily {
+	display: none;
+}
+div.mobileNav {
+	padding: 10px;
+	text-align: center;
+	clear: both;
+	display: block;
+	border: none;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+div.mobileNav a {
+	font-size: 13px !important;
+}
+.exploreItemsWrapper .mobileNav {
+	text-align: center;
+}
+.exploreItemsWrapper .mobileNav a img {
+	display: block;
+	margin: 0 auto;
+	border: 1px solid #333;
+	margin-bottom: 10px;
+}
+.exploreItemsWrapper .mobileNav a {
+	color: #333;
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	margin: 10px auto;
+	padding: 0 5px;
+}
+.navigation {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.exploreQuickItemsInner {
+	display: none;
+}
+.exploreWrapper {
+	float: none;
+	margin: 0;
+}
+.searchForm {
+	margin-bottom: 10px;
+}
+.articleWrapper {
+	width: 340px;
+	margin: 0 auto;
+}
+.heroBar a b {
+	font-size: 32px;
+	display: block;
+	font-weight: normal;
+}
+.onPageexploreItems li a {
+	color: #fff;
+	text-align: left;
+}
+.brandImage img {
+	width: 100%;
+	/*min-width:400px;*/
+	margin: 0 auto;
+}
+.brandImage img.sizerImage {
+	display: none;
+}
+.brandImage {
+	overflow: hidden;
+	position: relative;
+	clear: both;
+	margin-top: 60px;
+}
+.brandImage.active {
+	margin-top: 500px;
+}
+.secondaryNav {
+	display: block;
+}
+div.mobileNav .exploreItems li {
+	margin: 10px 10px 10px 0;
+}
+.contentHome {
+	clear: both;
+	padding: 40px 10px;
+}
+.contentHome h3 {
+	padding-top: 0;
+	font-family: "open_sans_lightregular", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+.contentHome h2 {
+	color: #999;
+}
+.contentHome .symptomChecker {
+}
+a.exploreLinkHome, a.exploreLink {
+	display: none;
+}
+.onPageexploreItems li img {
+	max-width: 122px;
+	float: none;
+	margin-right: 0px;
+}
+.onPageexploreItems li a {
+	color: #323133;
+	text-align: center;
+}
+.onPageexploreItems li span {
+	display: none;
+}
+.onPageexploreItems li a:hover span {
+	text-decoration: underline;
+}
+.commonItem li {
+	width: 23%;
+}
+.commonItem li a:hover {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 760px) {
+.topSpacer:before {
+	content: "";
+	display: block;
+	height: 120px; /* fixed header height*/
+	margin: -120px 0 -10px; /* negative fixed header height */
+}
+.topSpacer {
+	height: 110px;
+}
+/*#topSpacer{padding-top: 140px;}*/
+
+
+.navigation {
+	position: fixed;
+	top: -10px;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	overflow: hidden;
+}
+/*.brandImage { max-height:600px; }*/
+.brandImage {
+	max-height: 500px;
+	padding-top: 100px;
+}
+.navigation.sticky {
+}
+.header {
+	position: static;
+	overflow: hidden;
+}
+/*.header { display:block; z-index:500; }*/	
+.whiteNavBar {
+	top: 0;
+	left: 10px;
+	position: fixed;
+	width: 97%;
+	z-index: 1300;
+}
+.css3-mediaqueries {
+	display: none;
+}
+.heroBar {
+	position: absolute;
+	left: 0;
+	top: 350px;
+	width: 100%;
+	z-index: 700;
+	min-height: 100px;
+}
+.lowerHero {
+	top: 30px;
+}
+.navBar {
+	margin: 0 auto;/*width: 100%;*/
+}
+.sticky .css3-mediaqueries {
+	display: block;
+}
+.homeWelcome {
+	float: left;
+	width: 310px;
+	text-align: center;
+	font-size: 80px;
+	display: block;
+}
+.active .homeWelcome, .rightWhiteBar {
+	display: none;
+}
+/*.navigation { display:block !important;  border-top:10px solid #fff; position:absolute; top:420px; left:0; width:100%; overflow:visible; }*/
+.brandImage.active, .brandImage {
+	margin: 0;
+}
+.contentHome {
+	padding: 40px 0 0px;
+	background-position: center top;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.content .contentRelWrapper {
+	z-index: 500;
+	overflow: hidden;
+}
+.whiteHomeCover {
+	display: none;
+}
+.homeResources {
+	clear: none !important;
+	margin-bottom: 20px;
+}
+.onPageexploreItems li a {
+	text-align: left;
+}
+.onPageexploreItems li a img {
+	float: left;
+	margin-right: 10px;
+}
+.onPageexploreItems li span {
+	display: inline;
+}
+.navigation {
+	z-index: 800;
+	margin-top: 0;
+}
+.searchForm {
+	right: 232px;
+	top: 15px
+}
+.searchForm span {
+	position: absolute;
+	top: -30px;
+	left: 10px;
+	text-align: left;
+	color: #fff;
+	font-weight: bold;
+	display: block;
+	font-size: 22px;
+	opacity: 1;
+	transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-o-transition: opacity 1s;
+}
+.sticky .searchForm span {
+	opacity: 0;
+}
+.onPageexploreItems li {
+	min-height: 140px;
+}
+a.navAtag, a.exploreLinkHome {
+	margin: 63px 0 0;
+}
+a.exploreLinkHome {
+	display: block;
+	float: left;
+	margin-left: 10px;
+}
+a.exploreLinkHome:hover {
+}
+.headerInner {
+	width: 760px;
+	margin: 0 auto;
+}
+/*.sticky a.exploreLinkHome { display:none; }
+
+.sticky a.exploreLink { display:block; }
+	*/
+.mobileNav, div.mobileNav {
+	display: none;
+}
+.contentHome .newsItem {
+	width: 31%;
+	margin-right: 10px;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	float: none;
+}
+.imageMock {
+	width: 100px;
+}
+.loginBox form {
+	padding: 20px;
+}
+.logo {
+	display: inline;
+	position: absolute;
+	top: 0;
+	left: -3px;
+	z-index: 10000;
+	width: 304px;
+	height: 143px;
+}
+.marshfieldHomePageSignIn {
+	display: block;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	padding: 0px 19px;
+	font-size: 15px;
+}
+.contentHome .homesymptomChecker {
+	width: 60%;
+	margin-right: 10%;
+	float: left;
+}
+.contentHome .homesymptomChecker .symptomChecker {
+	float: none;
+	width: 100%;
+	margin: 30px 0;
+}
+.homeResources {
+	width: 30%;
+	float: left;
+}
+.CTAlinks {
+	margin: 0 -5px 0 22px;
+}
+.CTAlinks li {
+	float: left;
+	margin: 0 0 0 15px;
+}
+}
+
+@media screen and (min-width: 960px) {
+/*.topSpacer {
+height: 0px;
+}	*/
+contentHome {
+	padding: 40px 0 0;
+	background-position: center top;
+}
+.navigation {
+	position: fixed;
+	top: -10px;
+	left: 0;
+	margin: 0;
+	width: 100%;
+}
+/*.brandImage { max-height:600px; }*/
+.brandImage {
+	max-height: 500px;
+	padding-top: 100px;
+}
+.navigation.sticky {
+}
+.searchForm {
+	position: absolute;
+	top: 48px;
+	right: 41px;
+}
+.whiteNavBar {
+	top: 0;
+	left: 0px;
+	position: fixed;
+	width: 100%;
+	z-index: 1300;
+}
+a.navAtag, a.exploreLinkHome {
+	margin: 46px 0 0;
+}
+a.exploreLinkHome {
+	display: block;
+	float: left;
+	margin-left: 0px;
+}
+.marshfieldHomePageSignIn {
+	display: block;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	padding: 0px 62px;
+	font-size: 15px;
+}
+.logo {
+	display: inline;
+	position: absolute;
+	top: 0;
+	left: -7px;
+	z-index: 10000;
+	width: 304px;
+	height: 143px;
+}
+.sticky .searchForm {
+	top: 48px;
+}
+.whiteHomeCover {
+	position: absolute;
+	top: -10px;
+	left: 0;
+	width: 100%;
+	height: 11px;
+	background: #fff;
+}
+.articleWrapper {
+	width: 960px;
+}
+.header {
+	position: static;
+	overflow: visible;
+}
+.featuredArticles {
+	top: 100px;
+}
+.brandImage img {
+	top: 0px;
+	left: 0px;
+}
+.brandImage img.sizerImage {
+	position: static;
+	display: block;
+}
+.contentHome .homesymptomChecker {
+	width: 600px;
+	background: url(../images/symtom_finder_image.jpg) no-repeat left center;
+	margin-right: 30px;
+}
+.contentHome .homesymptomChecker .symptomChecker {
+	float: right;
+	width: 43%;
+}
+.homeResources {
+	width: 330px;
+}
+.CTAlinks {
+	margin: 0 -5px 0 5px;
+}
+.CTAlinks li {
+	float: left;
+	margin: 0 0 0 0;
+	width: 33%;
+}
+}
+
+@media screen and (max-width: 759px) {
+.searchForm {
+	text-align: center;
+}
+.searchForm input {
+	width: 70%;
+	font-size: 12px;
+	padding: 10px;
+	border: 1px solid #cbc6ba;
+	border-bottom: none;
+	border-right: none;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+}
+.searchForm input.searchButton, input.go {
+	background: url(/_layouts/15/images/marshfieldpws/search_icon.png) no-repeat center 6px;
+	border: none;
+	text-indent: -99px;
+	overflow: hidden;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	font-size: 1px;
+	position: absolute;
+	top: 2px;
+	right: 14%;
+}
+.exploreLeft {
+	text-align: center;
+	margin-bottom: 15px;
+}
+.marshfieldHomePageSignIn b {
+	color: #9a1344;
+	font-family: jenna_sueregular, cursive;
+	text-transform: lowercase;
+	font-weight: normal;
+	font-size: 26px;
+}
+.exploreItems li, .onPageexploreItems li, .commonItem li {
+	width:49%; 
+    /*fix for our health system */
+    /*width:24.5%;*/
+	/*width: auto;*/
+	float: left;
+	list-style: none;
+	text-align: center;
+	min-height: 0px;
+	font-size: 75%;
+	border: none;
+	/*fix for our health system */
+    /*margin:0 0px */
+	margin: 0 1px;
+	padding-bottom: 40px;
+}
+.exploreQuickItems li {
+	width: 32.5%;
+	float: left;
+	list-style: none;
+	text-align: center;
+	font-size: 75%;
+	border: none;
+	margin: 0 0px;
+	padding-bottom: 40px;
+}
+}
+
+@media screen and (max-width: 419px) {
+.exploreItems li, .onPageexploreItems li, .commonItem li {
+	width: 49.5%;
+	float: left;
+	list-style: none;
+	min-height: 0px;
+	text-align: center;
+	font-size: 75%;
+	border: none;
+	margin: 0 0px;
+	padding-bottom: 40px;
+}
+.exploreQuickItems li {
+	width: 32.5%;
+	float: left;
+	list-style: none;
+	min-height: 0px;
+	text-align: center;
+	font-size: 75%;
+	border: none;
+	margin: 0 0px;
+	padding-bottom: 40px;
+}
+}
+
+/*.navigation { display:none;}
+.homeMenuWrapper { display:box; display:-webkit-box; box-orient:vertical; -webkit-box-orient:vertical;}
+.header {box-ordinal-group:1; -webkit-box-ordinal-group:1; }
+#navigation { box-ordinal-group:2; -webkit-box-ordinal-group:2; }
+.brandImage {box-ordinal-group:3; -webkit-box-ordinal-group:3;}*/
+
+
+/*@media screen and (max-height: 768px) {
+	.brandImage {
+		max-height:550px;
+		} 
+		.navigation { top:550px;}
+	.heroBar { top:;  }
+}*/
+@media screen and (max-height: 600px) {
+}
+
+@media not all and (min-resolution:.001dpcm) { @media
+{
+    @media screen and (min-width: 760px) {
+    .navigation.gradient.fixsafaribug { 
+        min-height:730px !important;
+        opacity:0.97;
+    }
+    }
+
+    @media screen and (min-width: 960px) {
+    .navigation.gradient.fixsafaribug { 
+        min-height:540px !important;
+        opacity:0.97;
+    }
+    }
+}}
+
