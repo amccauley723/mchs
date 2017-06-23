@@ -4,8 +4,9 @@ using MarshfieldClinic.Models;
 using Umbraco.Web;
 using MarshfieldClinic.Helpers;
 using System.Collections.Generic;
+using Examine.LuceneEngine.SearchCriteria;
 
-namespace CodeShare.Web.Controllers
+namespace MarshfieldClinic.Web.Controllers
 {
     public class SearchController : SurfaceController
     {
@@ -24,7 +25,8 @@ namespace CodeShare.Web.Controllers
             if (!string.IsNullOrEmpty(model.FieldPropertyAliases))
             {
                 searchGroups = new List<SearchGroup>();
-                searchGroups.Add(new SearchGroup(model.FieldPropertyAliases.Split(','), new string[] { model.SearchTerm }));
+                //searchGroups.Add(new SearchGroup(model.FieldPropertyAliases.Split(','), new string[] { model.SearchTerm }));
+                searchGroups.Add(new SearchGroup(model.FieldPropertyAliases.Split(','), model.SearchTerm.Split()));
             }
             return searchGroups;
         }
