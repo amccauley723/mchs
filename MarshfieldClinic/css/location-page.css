@@ -1,0 +1,12 @@
+/*location page styles*/
+.location-contact-number {
+    font-size: 24px;
+}
+.body-margin-location h4 {
+    margin-bottom: 0;
+}
+.location-column-section:not(:last-child) {
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+}

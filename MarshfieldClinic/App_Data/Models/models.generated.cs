@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1b1d05d64f37e6dd")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c492630d5abe1123")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -127,15 +127,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Category, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Page Name
-		///</summary>
-		[ImplementPropertyType("pageName")]
-		public string PageName
-		{
-			get { return this.GetPropertyValue<string>("pageName"); }
 		}
 	}
 
@@ -271,7 +262,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	/// <summary>Location Type (copy)</summary>
+	/// <summary>Location Type</summary>
 	[PublishedContentModel("locationType1")]
 	public partial class LocationType1 : PublishedContentModel
 	{
@@ -306,7 +297,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	/// <summary>Location (copy)</summary>
+	/// <summary>Location</summary>
 	[PublishedContentModel("location1")]
 	public partial class Location1 : PublishedContentModel
 	{
@@ -332,12 +323,219 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Location Type
+		/// Address
 		///</summary>
-		[ImplementPropertyType("locationType")]
-		public string LocationType
+		[ImplementPropertyType("address")]
+		public string Address
 		{
-			get { return this.GetPropertyValue<string>("locationType"); }
+			get { return this.GetPropertyValue<string>("address"); }
+		}
+
+		///<summary>
+		/// Ambulatory Surgery Center Description
+		///</summary>
+		[ImplementPropertyType("ambulatorySurgeryCenterDescription")]
+		public string AmbulatorySurgeryCenterDescription
+		{
+			get { return this.GetPropertyValue<string>("ambulatorySurgeryCenterDescription"); }
+		}
+
+		///<summary>
+		/// Business Hours
+		///</summary>
+		[ImplementPropertyType("businessHours")]
+		public IEnumerable<string> BusinessHours
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("businessHours"); }
+		}
+
+		///<summary>
+		/// City
+		///</summary>
+		[ImplementPropertyType("city")]
+		public string City
+		{
+			get { return this.GetPropertyValue<string>("city"); }
+		}
+
+		///<summary>
+		/// Comfort and Recovery Suites Description
+		///</summary>
+		[ImplementPropertyType("comfortAndRecoverySuitesDescription")]
+		public string ComfortAndRecoverySuitesDescription
+		{
+			get { return this.GetPropertyValue<string>("comfortAndRecoverySuitesDescription"); }
+		}
+
+		///<summary>
+		/// Display Name: The name that will be used at the top of the page and an alternative to the alias made upon creation.
+		///</summary>
+		[ImplementPropertyType("displayName")]
+		public string DisplayName
+		{
+			get { return this.GetPropertyValue<string>("displayName"); }
+		}
+
+		///<summary>
+		/// Fax Number
+		///</summary>
+		[ImplementPropertyType("faxNumber")]
+		public string FaxNumber
+		{
+			get { return this.GetPropertyValue<string>("faxNumber"); }
+		}
+
+		///<summary>
+		/// Holiday Hours
+		///</summary>
+		[ImplementPropertyType("holidayHours")]
+		public IEnumerable<string> HolidayHours
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("holidayHours"); }
+		}
+
+		///<summary>
+		/// Imaging Center Description
+		///</summary>
+		[ImplementPropertyType("imagingCenterDescription")]
+		public string ImagingCenterDescription
+		{
+			get { return this.GetPropertyValue<string>("imagingCenterDescription"); }
+		}
+
+		///<summary>
+		/// Location Photo: The primary photo on the top of the location page content section.
+		///</summary>
+		[ImplementPropertyType("locationPhoto")]
+		public string LocationPhoto
+		{
+			get { return this.GetPropertyValue<string>("locationPhoto"); }
+		}
+
+		///<summary>
+		/// Location General Description: The brief location description located right underneath the location display name.
+		///</summary>
+		[ImplementPropertyType("locationTitleDescription")]
+		public IHtmlString LocationTitleDescription
+		{
+			get { return this.GetPropertyValue<IHtmlString>("locationTitleDescription"); }
+		}
+
+		///<summary>
+		/// Map File Upload
+		///</summary>
+		[ImplementPropertyType("mapFileUpload")]
+		public IEnumerable<IPublishedContent> MapFileUpload
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("mapFileUpload"); }
+		}
+
+		///<summary>
+		/// MRI Description
+		///</summary>
+		[ImplementPropertyType("mriDescription")]
+		public string MriDescription
+		{
+			get { return this.GetPropertyValue<string>("mriDescription"); }
+		}
+
+		///<summary>
+		/// Optical Description
+		///</summary>
+		[ImplementPropertyType("opticalDescription")]
+		public string OpticalDescription
+		{
+			get { return this.GetPropertyValue<string>("opticalDescription"); }
+		}
+
+		///<summary>
+		/// Optical Hours
+		///</summary>
+		[ImplementPropertyType("opticalHours")]
+		public IEnumerable<string> OpticalHours
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("opticalHours"); }
+		}
+
+		///<summary>
+		/// Pharmacy Description
+		///</summary>
+		[ImplementPropertyType("pharmacyDescription")]
+		public string PharmacyDescription
+		{
+			get { return this.GetPropertyValue<string>("pharmacyDescription"); }
+		}
+
+		///<summary>
+		/// Pharmacy Hours
+		///</summary>
+		[ImplementPropertyType("pharmacyHours")]
+		public IEnumerable<string> PharmacyHours
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("pharmacyHours"); }
+		}
+
+		///<summary>
+		/// Phone Number
+		///</summary>
+		[ImplementPropertyType("phoneNumber")]
+		public string PhoneNumber
+		{
+			get { return this.GetPropertyValue<string>("phoneNumber"); }
+		}
+
+		///<summary>
+		/// Same Day Appointment Number
+		///</summary>
+		[ImplementPropertyType("sameDayAppointmentNumber")]
+		public string SameDayAppointmentNumber
+		{
+			get { return this.GetPropertyValue<string>("sameDayAppointmentNumber"); }
+		}
+
+		///<summary>
+		/// Services List: This is a bullet list of services to be displayed on the location page.
+		///</summary>
+		[ImplementPropertyType("servicesList")]
+		public IEnumerable<string> ServicesList
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("servicesList"); }
+		}
+
+		///<summary>
+		/// Toll Free Phone Number
+		///</summary>
+		[ImplementPropertyType("tollFreePhoneNumber")]
+		public string TollFreePhoneNumber
+		{
+			get { return this.GetPropertyValue<string>("tollFreePhoneNumber"); }
+		}
+
+		///<summary>
+		/// Urgent Care Description
+		///</summary>
+		[ImplementPropertyType("urgentCareDescription")]
+		public string UrgentCareDescription
+		{
+			get { return this.GetPropertyValue<string>("urgentCareDescription"); }
+		}
+
+		///<summary>
+		/// Urgent Care Hours
+		///</summary>
+		[ImplementPropertyType("urgentCareHours")]
+		public IEnumerable<string> UrgentCareHours
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("urgentCareHours"); }
+		}
+
+		///<summary>
+		/// Zip Code
+		///</summary>
+		[ImplementPropertyType("zipCode")]
+		public string ZipCode
+		{
+			get { return this.GetPropertyValue<string>("zipCode"); }
 		}
 	}
 
@@ -633,6 +831,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Text Label
+		///</summary>
+		[ImplementPropertyType("textLabel")]
+		public string TextLabel
+		{
+			get { return this.GetPropertyValue<string>("textLabel"); }
+		}
+
+		///<summary>
 		/// Size
 		///</summary>
 		[ImplementPropertyType("umbracoBytes")]
@@ -701,6 +908,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<File, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Text Label: The label that will show as a link.
+		///</summary>
+		[ImplementPropertyType("textLabel")]
+		public string TextLabel
+		{
+			get { return this.GetPropertyValue<string>("textLabel"); }
 		}
 
 		///<summary>

@@ -1,0 +1,1 @@
+Could not find any UmbracoCourier licensing files in c:\users\drew mac\documents\visual studio 2017\Projects\MarshfieldClinic\MarshfieldClinic\bin:

@@ -4,7 +4,6 @@ using MarshfieldClinic.Models;
 using Umbraco.Web;
 using MarshfieldClinic.Helpers;
 using System.Collections.Generic;
-using Examine.LuceneEngine.SearchCriteria;
 
 namespace MarshfieldClinic.Web.Controllers
 {
