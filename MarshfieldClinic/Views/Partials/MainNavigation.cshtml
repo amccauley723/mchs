@@ -1,6 +1,9 @@
-﻿<!-- START NEW HEADER -->
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+<!-- START NEW HEADER -->
 
 <div class="all-the-header">
+    <div class="container">
     <a class="logo-link" href="/#">
         <div id="test-logo"></div>
     </a>
@@ -8,117 +11,85 @@
         <ul class="top-level-nav">
             <li class="hasKids"><a href="#">Explore</a>
                 <ul class="explore">
-                    <li><a class="heading" href="/billing">Pay your bill</a>
-                        <p>Use our Quick Pay system, log into My Marshfield Clinic, or get the address to mail in a
-                            payment</p>
-                    </li>
-                    <li><a class="heading" href="/careers">Careers</a>
-                        <p>Join a world-class health care system</p>
-                    </li>
-                    <li><a class="heading" href="/referral-center">Refer a patient</a>
-                        <p>MC CARES provides same day transfers and referrals to any hospital.</p>
-                    </li>
-                    <li><a class="heading" href="/patient-resources">Patient Resources</a>
-                        <p>Access appointments, medical records, bills and financial assistance</p>
-                    </li>
-                    <li><a target="_blank" class="heading" href="http://shine365.marshfieldclinic.org/">Our Blog -
-                        Shine365</a>
-                        <p>Get wellness and healthy living advice every day</p>
-                    </li>
-                    <li><a class="heading" href="/specialties">Specialties</a>
-                        <p>Learn about medical care in more than 80 specialties</p>
-                    </li>
-                    <li><a class="heading" href="https://marshfield.staywellsolutionsonline.com/">Health Library</a>
-                        <p>Find answers to health questions, symptoms and medications</p>
-                    </li>
-                    <li><a class="heading" href="/giving">Giving</a>
-                        <p>Support our mission with a gift or by attending an event</p>
-                    </li>
-                    <li><a class="heading" href="/news">Newsroom</a>
-                        <p>Follow us in the news to see how we’re changing health care</p>
-                    </li>
-                    <li><a class="heading" href="/professionals">Medical </a>
-                        <p>Make a patient referral, access medical education and research</p>
-                    </li>
+                    
+                    
+                @{
+                	var exploreMenu = Model.Content.Site().Children("page").Where(x => x.IsVisible());
+                }
+                
+                	@foreach(var item in exploreMenu){
+                		<li>
+                		    @if(@item.HasProperty("alternatePageLink") && @item.GetProperty("alternatePageLink").Value != String.Empty){
+                               <a href="@item.GetPropertyValue("alternatePageLink")">
+                    		    <span class="heading">@item.GetPropertyValue("navigationLabel")</span>
+                    		    
+                    		    <p>
+                    		    @item.GetPropertyValue("navigationDesc")
+                    		   </p>
+                    		   </a>
+                            }else{
+                                <a href="@item.Url">
+                    		    <span class="heading">@item.GetPropertyValue("navigationLabel")</span>
+                    		    
+                    		    <p>
+                    		    @item.GetPropertyValue("navigationDesc")
+                    		   </p>
+                    		   </a>
+                            }
+                		    
+                		</li>
+                	}
+
                 </ul>
             </li>
             <li class="hasKids"><a href="#">Locations</a>
                 <ul>
                     <!--URGENT CARE LINKS-->
                     <li class="dir locations"><a class="heading" href="#">Urgent Care</a>
-                        <ul>
-                            <li>
-                                <a href="/locations/urgent-care-centers/eau-claire-center"><span>Eau Claire Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/minocqua-center"><span>Minocqua Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/ladysmith-center">Ladysmith Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/rice-lake-center">Rice Lake Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/lake-hallie-center">Lake Hallie Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/wausau-center">Wausau Center</a>
-                            </li>
-                            <li>
-                                <a href="https://www.lakeviewmedical.com" target="_blank">Lakeview Medical Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/weston-center">Weston Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/marshfield-center">Marshfield Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/urgent-care-centers/wisconsin-rapids-center">Wisconsin Rapids Center</span> </a>
-                            </li>
-                        </ul>
+                   
+@{
+	var derp = Umbraco.TypedContent(1103).Children()
+						.Where(x => x.IsVisible());
+}
+
+
+ 
+                <ul>
+                	@foreach(var item in derp){
+                	var yourVals = item.GetPropertyValue<IEnumerable<string>>("locationTypes");
+                    	foreach(var val in yourVals){
+                            if(val.Contains("Urgent")){
+                                <li><a href="@item.Url">@item.Name</a></li>
+                            }
+                        }
+                	}
+                </ul>
+
                     </li>
                     <!--HOSPITALS LINKS-->
                     <li class="dir locations"><a class="heading" href="#">Hospitals</a>
                         <ul>
-                            <li>
-                                <a href="/locations/hospitals/marshfield-medical-center">Marshfield Medical Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/hospitals/childrens-hospital">Marshfield Children's Hospital</a>
-                            </li>
-                            <li>
-                                <a href="http://ministryhealth.org/FH/home.nws" target="_blank">Flambeau Hospital - Park
-                                    Falls</a>
-                            </li>
-                            <li>
-                                <a href="https://www.lakeviewmedical.com" target="_blank">Lakeview Medical Center - Rice
-                                    Lake</a>
-                            </li>
+                           @foreach(var item in derp){
+                	var yourVals = item.GetPropertyValue<IEnumerable<string>>("locationTypes");
+                    	foreach(var val in yourVals){
+                            if(val.Contains("Hospital")){
+                                <li><a href="@item.Url">@item.Name</a></li>
+                            }
+                        }
+                	}
                         </ul>
                     </li>
                     <!--CLINIC LINKS-->
                     <li class="dir locations"><a class="heading" href="#">Clinics</a>
                         <ul>
-                            <li>
-                                <a href="/locations/clinics/eau-claire-center">Eau Claire Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/clinics/wausau-center">Wausau Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/clinics/marshfield-center">Marshfield Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/clinics/weston-center">Weston Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/clinics/stevens-point-center">Stevens Point Center</a>
-                            </li>
-                            <li>
-                                <a href="/locations/clinics">See all &gt;</a>
-                            </li>
+                           @foreach(var item in derp){
+                	var yourVals = item.GetPropertyValue<IEnumerable<string>>("locationTypes");
+                    	foreach(var val in yourVals){
+                            if(val.Contains("Clinic")){
+                                <li><a href="@item.Url">@item.Name</a></li>
+                            }
+                        }
+                	}
                         </ul>
                     </li>
                 </ul>
@@ -139,64 +110,25 @@
                     </li>
                     <li>
                         <p class="heading">Select a specialty</p>
-                        <ul class="home-specialties">
-                            <li><a href="/Doctors/Search/?k=Allergy and Asthma">Allergy and Asthma</a>
-                                <a href="/Doctors/Search/?k=Anesthesia">Anesthesia</a>
-                                <a href="/Doctors/Search/?k=Audiology">Audiology</a>
-                                <a href="/Doctors/Search/?k=Bariatric Surgery">Bariatric Surgery</a>
-                                <a href="/Doctors/Search/?k=Cardiology">Cardiology (Heart Care)</a>
-                                <a href="/Doctors/Search/?k=Dental">Dental</a>
-                                <a href="/Doctors/Search/?k=Dermatology">Dermatology</a>
-                                <a href="/Doctors/Search/?k=Ear Nose and Throat (ENT)">Ear Nose and Throat (ENT)</a>
-                                <a href="/Doctors/Search/?k=Emergency Medicine">Emergency Medicine</a>
-                                <a href="/Doctors/Search/?k=Endocrinology">Endocrinology (Diabetes and
-                                    Metabolism)</a>
-                                <a href="/Doctors/Search/?k=Family Medicine">Family Medicine</a>
-                                <a href="/Doctors/Search/?k=Gastroenterology">Gastroenterology (Digestive Care)</a>
-                                <a href="/Doctors/Search/?k=General Surgery">General Surgery</a>
-                                <a href="/Doctors/Search/?k=Genetic Services">Genetic Services</a>
-                                <a href="/Doctors/Search/?k=Hospitalist">Hospitalists (Hospital Care)</a>
-                            </li>
-                            <li>
-                                <a href="/Doctors/Search/?k=Infectious Diseases">Infectious Diseases</a>
-                                <a href="/Doctors/Search/?k=Internal Medicine">Internal Medicine</a>
-                                <a href="/Doctors/Search/?k=Nephrology">Nephrology (Kidney Care)</a>
-                                <a href="/Doctors/Search/?k=Neurology">Neurosciences (Neurology)</a>
-                                <a href="/Doctors/Search/?k=Obstetrics and Gynecology">Obstetrics and Gynecology
-                                    (OB/GYN)</a>
-                                <a href="/Doctors/Search/?k=Occupational Health">Occupational Health</a>
-                                <a href="/Doctors/Search/?k=Oncology">Oncology (Cancer Care)</a>
-                                <a href="/Doctors/Search/?k=Ophthalmology and Optometry">Ophthalmology and Optometry
-                                    (Eye Care)</a>
-                                <a href="/Doctors/Search/?k=Oral and Maxillofacial Surgery">Oral and
-                                    Maxillofacial Surgery</a>
-                                <a href="/Doctors/Search/?k=Orthopedic Surgery">Orthopedic
-                                    Surgery</a>
-                                <a href="/Doctors/Search/?k=Pain Management">Pain Management</a>
-                                <a href="/Doctors/Search/?k=Palliative Care">Palliative Medicine</a>
-                                <a href="/Doctors/Search/?k=Pediatrics">Pediatrics</a>
-                                <a href="/Doctors/Search/?k=Physical and Occupational Therapy">Physical and
-                                    Occupational Therapy</a>
-                                <a href="/Doctors/Search/?k=Physical Medicine and Rehabilitation">Physical Medicine and
-                                    Rehabilitation</a>
-                            </li>
-                            <li>
-                                <a href="/Doctors/Search/?k=Plastic and Cosmetic Surgery">Plastic and Cosmetic
-                                    Surgery</a>
-                                <a href="/Doctors/Search/?k=Podiatry">Podiatry</a>
-                                <a href="/Doctors/Search/?k=Primary Care">Primary Care</a>
-                                <a href="/Doctors/Search/?k=Psychiatry and Psychology">Psychiatry and Psychology</a>
-                                <a href="/Doctors/Search/?k=Pulmonary Medicine">Pulmonary Medicine (Lung Care)</a>
-                                <a href="/Doctors/Search/?k=Radiology">Radiology</a>
-                                <a href="/Doctors/Search/?k=Rheumatology">Rheumatology and Arthritis Care</a>
-                                <a href="/Doctors/Search/?k=Sleep Medicine">Sleep Medicine</a>
-                                <a href="/Doctors/Search/?k=Sports Medicine">Sports Medicine</a>
-                                <a href="/Doctors/Search/?k=Urgent Care">Urgent Care</a>
-                                <a href="/Doctors/Search/?k=Urology">Urology</a>
-                                <a href="/Doctors/Search/?k=Vascular Surgery">Vascular Surgery</a>
-                                <a href="/Doctors/Search/?k=Wound Healing">Wound Healing</a>
-                            </li>
-                        </ul>
+                            @{
+                            	var selection = Umbraco.TypedContent(1157).Children().Where(x => x.IsVisible());
+                            	int i = 0; 				
+                            }
+                           <ul class="home-specialties">
+                               <li>
+                            	@foreach(var item in selection){
+                            	    if(i == 14 || i == 28){
+                            	    @Html.Raw("</li><li>")
+                            	   
+                            	    }
+                            	
+                            			<a href="@item.Url">@item.Name</a>
+                            	
+                            	    i++;
+                            	
+                            	}
+                            	</li>
+                            </ul>
                     </li>
                 </ul>
             </li>
@@ -210,8 +142,10 @@
             </form>
         </div>
     </nav>
+    </div>
     <div class="new-quick-tasks"><a href="/care-my-way">contact care my way</a><a href="/Patient-Resources/billing">pay
         a bill</a><a href="/renew-prescription">refill prescriptions</a></div>
+        
 </div>
 
 <!-- END NEW HEADER -->

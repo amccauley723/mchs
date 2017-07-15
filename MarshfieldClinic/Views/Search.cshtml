@@ -11,7 +11,7 @@
     </style>
 }
 
-    <section class="container">
+    <section class="container body-margin-location">
         <div class="row">
             <div class="col-xs-12">
                 @{ Html.RenderAction("RenderSearchForm", "Search", new { docTypeAliases = "provider,providerType", fieldPropertyAliases = "nodeName,metaName,metaKeyWords,metaDescription,contentGrid,specialties", pageSize = 10, pagingGroupSize = 3 }); }

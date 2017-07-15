@@ -1,5 +1,22 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ProviderType>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+	Layout = "Master.cshtml";
 }
+
+<div class="body-margin-location container">
+@{
+        var page = CurrentPage;    
+}
+
+<h1>@page.Name</h1>
+<ul>
+@foreach (var child in page.Children) {
+    <li>
+        <a href="@child.Url">@child.Name</a>
+        <p>@child.mainLocation</p>
+        <p>@child.phone</p>
+    </li>
+}
+</ul>  
+</div>

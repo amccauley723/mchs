@@ -1,0 +1,109 @@
+{
+  "name": "Request an appointment",
+  "created": "2017-07-14T16:48:06.4083431-05:00",
+  "pages": [
+    {
+      "fieldSets": [
+        {
+          "caption": null,
+          "sortOrder": 0,
+          "id": "d5466f86-361c-4dfd-b4de-594e746af274",
+          "page": "00000000-0000-0000-0000-000000000000",
+          "containers": [
+            {
+              "caption": null,
+              "width": 12,
+              "fields": [
+                {
+                  "caption": "Appointment Date",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "appointmentDate",
+                  "id": "675886e3-f214-43de-96e3-179899c58564",
+                  "fieldTypeId": "f8b4c3b8-af28-11de-9dd8-ef5956d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": "This field is required.",
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": []
+                },
+                {
+                  "caption": "Appointment Time",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "appointmentTime",
+                  "id": "eb814e1d-337a-4962-97fc-03694f45eb29",
+                  "fieldTypeId": "0dd29d42-a6a5-11de-a2f2-222256d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": "This field is required.",
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "8 am",
+                    "9 am",
+                    "10 am",
+                    "11 am",
+                    "12 pm",
+                    "1 pm",
+                    "2 pm",
+                    "3 pm",
+                    "4 pm"
+                  ]
+                }
+              ]
+            }
+          ],
+          "condition": null
+        }
+      ],
+      "caption": null,
+      "sortOrder": 0,
+      "id": "00000000-0000-0000-0000-000000000000",
+      "form": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "id": "3d387ea3-485b-4712-ad62-60f91548d181",
+  "fieldIndicationType": "MarkMandatoryFields",
+  "indicator": "*",
+  "showValidationSummary": false,
+  "hideFieldValidation": false,
+  "requiredErrorMessage": "Please provide a value for {0}",
+  "invalidErrorMessage": "Please provide a valid value for {0}",
+  "messageOnSubmit": "Thank you",
+  "goToPageOnSubmit": 0,
+  "xPathOnSubmit": null,
+  "manualApproval": false,
+  "storeRecordsLocally": true,
+  "cssClass": null,
+  "disableDefaultStylesheet": false,
+  "useClientDependency": false,
+  "workflows": [
+    "adf1fd9a-9ab5-4912-a3dd-aa400562153e"
+  ],
+  "datasource": null,
+  "submitLabel": "Submit",
+  "nextLabel": "Next",
+  "prevLabel": "Previous"
+}

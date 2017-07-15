@@ -1,0 +1,16 @@
+{
+  "id": "adf1fd9a-9ab5-4912-a3dd-aa400562153e",
+  "name": "Send template email to mccauley.andrew@marshfieldclinic.org",
+  "form": "3d387ea3-485b-4712-ad62-60f91548d181",
+  "active": true,
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "mccauley.andrew@marshfieldclinic.org",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

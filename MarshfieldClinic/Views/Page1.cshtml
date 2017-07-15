@@ -3,5 +3,11 @@
 	Layout = "category.cshtml";
 }
 
-@* the fun starts here *@
-@Umbraco.Field("content")
+<div class="body-margin-location container">
+@{
+        var page = CurrentPage;    
+}
+
+<h1>@page.navigationLabel</h1>
+@page.Content
+</div>

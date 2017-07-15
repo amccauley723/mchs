@@ -12,6 +12,7 @@ body {
 }
 .body-margin-location {  
     margin-top: 240px;
+	min-height: 500px;
 }
 .all-the-header {
 	background: #f6f1e5;
@@ -126,14 +127,14 @@ a.logo-link {
             width: 32.33%;
             box-sizing: border-box;
         }
-        #primary_nav_wrap .heading {
-            font-size: 18px !important;
-            text-transform: uppercase;
-            margin: 0 !important;
-            padding: 10px 0 !important;
-            color: black;
-            font-weight: 300;
-        }
+        #primary_nav_wrap .heading, .footer-container .heading {
+			font-size: 18px !important;
+			text-transform: uppercase;
+			margin: 0 !important;
+			padding: 10px 0 !important;
+			color: black;
+			font-weight: 300;
+		}
         #primary_nav_wrap ul ul li ul li {
             /* float: none; */
             width: 100%;

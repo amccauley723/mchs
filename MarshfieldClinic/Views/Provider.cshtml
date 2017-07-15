@@ -1,5 +1,18 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Provider>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+	Layout = "Master.cshtml";
 }
+<div class="body-margin-location container">
+    <!--location title-->
+    <div class="row">
+        <div class="col-md-12">
+          @if(Model.Content.HasValue("displayName")){
+            <h1>@Umbraco.Field("displayName")</h1>
+          }else{
+            <h1>@Umbraco.Field("pageName")</h1>
+          }
+        </div>
+    </div>
+    
+</div>
