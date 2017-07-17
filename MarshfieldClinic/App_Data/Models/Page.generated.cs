@@ -58,9 +58,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Content
 		///</summary>
 		[ImplementPropertyType("content")]
-		public string Content
+		public Newtonsoft.Json.Linq.JToken Content
 		{
-			get { return this.GetPropertyValue<string>("content"); }
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
 		}
 
 		///<summary>

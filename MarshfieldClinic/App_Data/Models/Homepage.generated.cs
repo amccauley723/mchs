@@ -46,21 +46,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Hero Image: This is the big image on the top of the page.
+		/// Home Grid: The paragraph under the hero image.
 		///</summary>
-		[ImplementPropertyType("heroImage")]
-		public string HeroImage
+		[ImplementPropertyType("homeGrid")]
+		public Newtonsoft.Json.Linq.JToken HomeGrid
 		{
-			get { return this.GetPropertyValue<string>("heroImage"); }
-		}
-
-		///<summary>
-		/// Main Copy: The paragraph under the hero image.
-		///</summary>
-		[ImplementPropertyType("mainCopy")]
-		public string MainCopy
-		{
-			get { return this.GetPropertyValue<string>("mainCopy"); }
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("homeGrid"); }
 		}
 
 		///<summary>
@@ -79,15 +70,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageName
 		{
 			get { return this.GetPropertyValue<string>("pageName"); }
-		}
-
-		///<summary>
-		/// Section 1 Title
-		///</summary>
-		[ImplementPropertyType("section1Title")]
-		public string Section1Title
-		{
-			get { return this.GetPropertyValue<string>("section1Title"); }
 		}
 
 		///<summary>

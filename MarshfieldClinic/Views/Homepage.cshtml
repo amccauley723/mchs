@@ -5,18 +5,7 @@
 }
 
 <div class="body-margin container-fluid">
-@if(Model.Content.HasValue("heroImage")){
-    <div class="row">
-        <div class="col-md-12 no-padding">
-            <img src="@Umbraco.Field("heroImage")" width="100%"/>
-        </div>
-    </div>
-}
 
-
-    <div class="container">
-        <h1>@Umbraco.Field("section1Title")</h1>
-        <p>@Umbraco.Field("mainCopy")</p>   
-    </div>
+@Html.GetGridHtml(Model.Content, "homeGrid")
     
 </div>
