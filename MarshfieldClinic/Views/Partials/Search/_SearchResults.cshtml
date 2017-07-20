@@ -16,7 +16,7 @@
             @foreach (IPublishedContent result in Model.Results)
             {
                 <div class="col-xs-12">
-                    <a href="@(result.Url)" target="_blank">@(result.Name)</a>
+                    <a href="@(result.Url)">@(result.Name)</a>
                     <p>@(result.GetPropertyValue<string>("metaDescription"))</p>
                 </div>
             }

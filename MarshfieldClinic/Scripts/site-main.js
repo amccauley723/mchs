@@ -20,12 +20,12 @@
     // Search and Type Ahead
     $(document).on('click', '.header-test-button', function(event){
         event.preventDefault();
-        window.location = '/Search/?k=' + $('#newSearchInput').val();
+        window.location = '/Search/?query=' + $('#newSearchInput').val();
     });
     $(document).on('keyup', '#newSearchInput', function(event){
         event.preventDefault();
         if(event.keyCode === '13'){
-            window.location = '/Search/?k=' + $('#newSearchInput').val();
+            window.location = '/Search/?query=' + $('#newSearchInput').val();
         }
         if($(this).val() !== '' && $(this).val() !== 'undefined' && $(this).val() !== null){
             getServices($(this).val());
@@ -47,12 +47,12 @@
     });
     $(document).on('click', '.doc-test-button', function(event){
         event.preventDefault();
-        window.location = '/doctors/search/?k=' + $('#docSearchInput').val();
+        window.location = '/doctors/search/?query=' + $('#docSearchInput').val();
     });
     $(document).on('keyup', '#docSearchInput', function(event){
         event.preventDefault();
         if(event.keyCode === '13'){
-            window.location = '/doctors/search/?k=' + $('#docSearchInput').val();
+            window.location = '/doctors/search/?query=' + $('#docSearchInput').val();
         }
     });
     
