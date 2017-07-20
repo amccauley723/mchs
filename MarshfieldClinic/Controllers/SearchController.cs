@@ -1,80 +1,64 @@
 ﻿using System.Web.Mvc;
 using Umbraco.Web.Mvc;
 using MarshfieldClinic.Models;
-using Umbraco.Web;
-using MarshfieldClinic.Helpers;
 using System.Collections.Generic;
+using Examine;
+using System;
+using Examine.LuceneEngine.SearchCriteria;
 
 namespace MarshfieldClinic.Web.Controllers
 {
     public class SearchController : SurfaceController
     {
-        #region Private Variables and Methods
-
-        private SearchHelper _searchHelper { get { return new SearchHelper(new UmbracoHelper(UmbracoContext.Current)); } }
-
-        private string PartialViewPath(string name)
+        public JsonResult LookFor(string d, string t)
         {
-            return $"~/Views/Partials/Search/{name}.cshtml";
-        }
-
-        private List<SearchGroup> GetSearchGroups(SearchViewModel model)
-        {
-            List<SearchGroup> searchGroups = null;
-            if (!string.IsNullOrEmpty(model.FieldPropertyAliases))
+            if (!string.IsNullOrEmpty(t))
             {
-                searchGroups = new List<SearchGroup>();
-                //searchGroups.Add(new SearchGroup(model.FieldPropertyAliases.Split(','), new string[] { model.SearchTerm }));
-                searchGroups.Add(new SearchGroup(model.FieldPropertyAliases.Split(','), model.SearchTerm.Split()));
-            }
-            return searchGroups;
-        }
+                var criteria = ExamineManager.Instance
+                    .SearchProviderCollection["ExternalSearcher"]
+                    .CreateSearchCriteria();
 
-        #endregion
+                // Find pages that contain our search text in either their nodeName or bodyText fields...
+                // but exclude any pages that have been hidden.
+                // searchCriteria.Fields("nodeName",terms.Boost(8)).Or().Field("metaTitle","hello".Boost(5)).Compile();
 
-        #region Controller Actions
+                var crawl = criteria.GroupedOr(new string[] { "nodeName", "specialties", "servicesList", "locationTypes", "synonyms" }, t.MultipleCharacterWildcard())
+                    .And().NodeTypeAlias(d)
+                    .Not()
+                    .Field("umbracoNaviHide", "1")
+                    .Compile();
 
-        [HttpGet]
-        public ActionResult RenderSearchForm(string query, string docTypeAliases, string fieldPropertyAliases, int pageSize, int pagingGroupSize)
-        {
-            SearchViewModel model = new SearchViewModel();
-            if (!string.IsNullOrEmpty(query))
-            {
-                model.SearchTerm = query;
-                model.DocTypeAliases = docTypeAliases;
-                model.FieldPropertyAliases = fieldPropertyAliases;
-                model.PageSize = pageSize;
-                model.PagingGroupSize = pagingGroupSize;
-                model.SearchGroups = GetSearchGroups(model);
-                model.SearchResults = _searchHelper.GetSearchResults(model, Request.Form.AllKeys);
-            }
-            return PartialView(PartialViewPath("_SearchForm"), model);
-        }
+                ISearchResults SearchResults = ExamineManager.Instance
+                    .SearchProviderCollection["ExternalSearcher"]
+                    .Search(crawl);
 
+                IList<Result> results = new List<Result>();
 
-
-        [HttpPost]
-        public ActionResult SubmitSearchForm(SearchViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                if (!string.IsNullOrEmpty(model.SearchTerm))
+                foreach (SearchResult sr in SearchResults)
                 {
-                    model.SearchTerm = model.SearchTerm;
-                    model.SearchGroups = GetSearchGroups(model);
-                    model.SearchResults = _searchHelper.GetSearchResults(model, Request.Form.AllKeys);
+                    string niceUrl = Umbraco.NiceUrl(sr.Id);
+                    Result result = new Result()
+                    {
+                        Id = sr.Id,
+                        Score = (int)Math.Min(sr.Score * 100, 100),
+                        Url = sr.Fields["urlName"],
+                        Name = sr.Fields["nodeName"],
+                        NiceUrl = niceUrl
+                    };
+
+                    results.Add(result);
                 }
-                return RenderSearchResults(model.SearchResults);
+
+                return Json(results, JsonRequestBehavior.AllowGet);
+
             }
-            return null;
+            else
+            {
+                return Json("Search term not found", JsonRequestBehavior.AllowGet);
+            }
+
         }
 
-        public ActionResult RenderSearchResults(SearchResultsModel model)
-        {
-            return PartialView(PartialViewPath("_SearchResults"), model);
-        }
-
-        #endregion
 
     }
 }

@@ -122,7 +122,7 @@
                             	   
                             	    }
                             	
-                            			<a href="@item.Url">@item.Name</a>
+                            			<a href="@item.Url">@item.Name (@item.Children.Count())</a>
                             	
                             	    i++;
                             	
@@ -137,7 +137,31 @@
         </ul>
         <div class="new-form-container">
             <form id="header-test-form" name="header-test-form">
-                <input class="test-input" id="newSearchInput" name="newSearchInput" placeholder="Search" title="search text box" type="text"/>
+                <input class="test-input" id="newSearchInput" name="newSearchInput" placeholder="Search" title="search text box" type="text"  autocomplete="off"/>
+                <div id="typeAheadResults">
+                    <div class="row">
+                        <div class="col-md-4" id="typeAheadServices">
+                            <a class="heading" href="#">Services & Specialties</a>
+                            <div class="menu-items"></div>
+                        </div>
+                        <div class="col-md-3" id="typeAheadLocations">
+                            <a class="heading" href="#">Locations</a>
+                            <div class="menu-items"></div>
+                        </div>
+                        <div class="col-md-5" id="typeAheadBlog">
+                            <a class="heading" href="#">Recent Blog Posts</a>
+                            <div class="menu-items"></div>
+                        </div>
+                    </div>
+                    <div id="row">
+                        <div class="col-md-12" id="typeAheadProviders">
+                            <a class="heading" href="#">Providers</a>
+                            <div class="menu-items"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
                 <button class="header-test-button" type="submit">SEARCH</button>
             </form>
         </div>
