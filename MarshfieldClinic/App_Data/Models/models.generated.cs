@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "78304bcdc3f67f99")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a7337d011545a37b")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -307,15 +307,15 @@ namespace Umbraco.Web.PublishedContentModels
 	}
 
 	/// <summary>Location</summary>
-	[PublishedContentModel("locations")]
-	public partial class Locations : PublishedContentModel
+	[PublishedContentModel("location")]
+	public partial class Location : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "locations";
+		public new const string ModelTypeAlias = "location";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public Locations(IPublishedContent content)
+		public Location(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -326,7 +326,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Locations, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Location, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
@@ -592,21 +592,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Available at locations
+		///</summary>
+		[ImplementPropertyType("availableAtLocations")]
+		public IEnumerable<string> AvailableAtLocations
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("availableAtLocations"); }
+		}
+
+		///<summary>
 		/// Specialty
 		///</summary>
 		[ImplementPropertyType("specialty")]
 		public string Specialty
 		{
 			get { return this.GetPropertyValue<string>("specialty"); }
-		}
-
-		///<summary>
-		/// Synonyms
-		///</summary>
-		[ImplementPropertyType("synonyms")]
-		public IEnumerable<string> Synonyms
-		{
-			get { return this.GetPropertyValue<IEnumerable<string>>("synonyms"); }
 		}
 
 		///<summary>
@@ -654,6 +654,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Additional Procedures
+		///</summary>
+		[ImplementPropertyType("additionalProcedures")]
+		public string AdditionalProcedures
+		{
+			get { return this.GetPropertyValue<string>("additionalProcedures"); }
+		}
+
+		///<summary>
 		/// Also Sees Patients At
 		///</summary>
 		[ImplementPropertyType("alsoSeesPatientsAt")]
@@ -678,6 +687,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string BoardCertifications
 		{
 			get { return this.GetPropertyValue<string>("boardCertifications"); }
+		}
+
+		///<summary>
+		/// DX Codes
+		///</summary>
+		[ImplementPropertyType("dXCodes")]
+		public string DXcodes
+		{
+			get { return this.GetPropertyValue<string>("dXCodes"); }
 		}
 
 		///<summary>
@@ -787,6 +805,15 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return this.GetPropertyValue<string>("stateLicenses"); }
 		}
+
+		///<summary>
+		/// Synonyms
+		///</summary>
+		[ImplementPropertyType("synonyms")]
+		public string Synonyms
+		{
+			get { return this.GetPropertyValue<string>("synonyms"); }
+		}
 	}
 
 	/// <summary>Search</summary>
@@ -810,32 +837,6 @@ namespace Umbraco.Web.PublishedContentModels
 #pragma warning restore 0109
 
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Search, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-	}
-
-	/// <summary>Global Search</summary>
-	[PublishedContentModel("globalSearch")]
-	public partial class GlobalSearch : PublishedContentModel
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "globalSearch";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public GlobalSearch(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GlobalSearch, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}

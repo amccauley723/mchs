@@ -3398,6 +3398,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SearchByTypeController.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Helpers\LuceneSearchExtensions.cs" />
@@ -3425,6 +3426,7 @@
     <Folder Include="Properties\" />
     <Folder Include="Views\MacroPartials\" />
     <Folder Include="Views\SearchAPI\" />
+    <Folder Include="Views\SearchByType\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

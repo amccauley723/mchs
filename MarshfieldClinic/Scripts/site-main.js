@@ -31,7 +31,7 @@
             getServices($(this).val());
             getProviders($(this).val());
             getLocations($(this).val());
-            getBlogPosts($(this).val());
+            //getBlogPosts($(this).val());
             $("#typeAheadResults").show();
         }else{
              closeTypeAhead();
@@ -57,12 +57,13 @@
     });
     
 function getProviders(searchTerms){
-        $.getJSON('/umbraco/Surface/Search/LookFor?d=' + "provider" + '&t=' + searchTerms)
-            .done(function(data){
+        $.getJSON('/umbraco/Surface/SearchByType/Doctors?t=' + searchTerms)
+            .done(function (data) {
+                
                 if(data.length > 0){
                     html = '<ul>';
-                    for(var i = 0; i < data.length; i++){
-                
+                    for (var i = 0; i < data.length; i++){
+
                          html += '<li><a href="' + data[i].NiceUrl + '">' + data[i].Name  + '</a></li>'; 
                      
                     }
@@ -75,7 +76,7 @@ function getProviders(searchTerms){
             });
 }
 function getServices(searchTerms){
-        $.getJSON('/umbraco/Surface/Search/LookFor?d=' + "providerType" + '&t=' + searchTerms)
+    $.getJSON('/umbraco/Surface/SearchByType/Specialties?t=' + searchTerms)
             .done(function(data){
                 if(data.length > 0){
                     html = '<ul>';
@@ -90,7 +91,7 @@ function getServices(searchTerms){
             });
 }
     function getLocations(searchTerms){
-        $.getJSON('/umbraco/Surface/Search/LookFor?d=locations&t=' + searchTerms)
+        $.getJSON('/umbraco/Surface/SearchByType/Locations?t=' + searchTerms)
             .done(function(data){
                 if(data.length > 0){
                     html = '<ul>';
