@@ -1,14 +1,13 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 
-
-@{
-	var aboutOurClinic = Umbraco.TypedContent(1290).Children()
-						.Where(x => x.IsVisible());
-}
 <div class="footer-container container-fluid">
     <div class="container">
     <div class="row">
         <div class="col-md-4">
+        @{
+        	var aboutOurClinic = Umbraco.TypedContent(1290).Children()
+            						.Where(x => x.IsVisible());
+        }
             <ul><span class="heading footer-list">About our clinic</span>
             	@foreach(var item in aboutOurClinic){
             		<li>

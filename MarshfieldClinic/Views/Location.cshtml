@@ -1,90 +1,35 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
 	Layout = "Master.cshtml";
-	
 }
-
 @section Stylesheets {
 <link rel="stylesheet" href="/css/location-page.css" type="text/css" media="screen" />
 }
 
 
-<div class="body-margin-location container">
+<div class="body-margin container">
     <!--location title-->
     <div class="row">
         <div class="col-md-12">
           @if(Model.Content.HasValue("displayName")){
-            <h1>@Umbraco.Field("displayName")</h1>
+            <h1 style="width: 100%; text-align: center;">@Umbraco.Field("displayName")</h1>
           }else{
-            <h1>@Umbraco.Field("pageName")</h1>
+            <h1 style="width: 100%; text-align: center;">@Umbraco.Field("pageName")</h1>
+          }
+          @if(Model.Content.HasValue("locationDesc")){
+            <h3 style="width: 100%; text-align: center; margin-bottom: 40px;">@Umbraco.Field("locationDesc")</h3>
           }
         </div>
     </div>
-    <div class="row">
-        <!--business hours were here-->
-        
-    </div>
     <!--start location content-->
     <div class="row">
-        <div class="col-md-9">
-            <img src="@Umbraco.Field("locationPhoto")" width="100%"/>
-            <p>@Umbraco.Field("locationTitleDescription")</p>
+        
+        <div class="col-md-4">
+            @Html.Partial("location-sidebar")
         </div>
-        <div class="col-md-3">
-            <div class="location-column-section">
-                <h4>Phone</h4> <span class="location-contact-number">@Umbraco.Field("phoneNumber")</span>
-                <h4>Toll Free</h4>  <span class="location-contact-number">@Umbraco.Field("tollFreePhoneNumber")</span>
-                <h4>Fax</h4>  <span class="location-contact-number">@Umbraco.Field("faxNumber")</span>
-            </div>
-            <div class="location-column-section">
-                <h4>Address</h4>
-                <p>@Umbraco.Field("address")<br>
-               @Umbraco.Field("city"), WI @Umbraco.Field("zipCode")</p>
-            </div>
-            <div class="location-column-section">
-                @if (CurrentPage.businessHours.Length > 0){
-                <h4>Business Hours</h4>
-                    foreach (var item in CurrentPage.businessHours){
-                        <div>@item</div>
-                    }
-                }
-                
-                @if (CurrentPage.urgentCareHours.Length > 0){
-                <h4>Urgent Care Hours Hours</h4>
-                    foreach (var item in CurrentPage.urgentCareHours){
-                        <div>@item</div>
-                    }
-                }
-                
-                @if (CurrentPage.pharmacyHours.Length > 0){
-                <h4>Pharmacy Hours</h4>
-                    foreach (var item in CurrentPage.pharmacyHours){
-                        <div>@item</div>
-                    }
-                }
-                
-                
-                @if (CurrentPage.opticalHours.Length > 0){
-                <h4>Optical Shop Hours</h4>
-                    foreach (var item in CurrentPage.opticalHours){
-                        <div>@item</div>
-                    }
-                }
-            </div>
-            <div class="location-column-section">
-                <h4>Floor Maps</h4>
-
-
-
-       @{      
-            if (CurrentPage.HasValue("mapFileUpload")){ 
-            var dynamicMediaItem = Umbraco.Media(CurrentPage.mapFileUpload);
-               <p>it does @dynamicMediaItem</p>
-            }
-        }
-
-
-            </div>
+        <div class="col-md-8">
+            @Html.Partial("location-info")
+            
         </div>
     </div>
 </div>

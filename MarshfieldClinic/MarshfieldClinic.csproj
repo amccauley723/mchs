@@ -494,8 +494,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\footer.css" />
     <Content Include="css\home.css" />
     <Content Include="css\layout3.css" />
+    <Content Include="css\location-page.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="obj\Debug\MarshfieldClinic.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\MarshfieldClinic.dll" />

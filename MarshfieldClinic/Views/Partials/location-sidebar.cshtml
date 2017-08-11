@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+@if (Model.Content.HasValue("staticMapImage")){
+    <img class="common" src="@CurrentPage.staticMapImage" width="100%"/>
+}
+<div class="location-column-section">
+    <h4>
+    <p>@Umbraco.Field("address")<br>
+   @Umbraco.Field("city"), WI @Umbraco.Field("zipCode")<br>
+   <a href="https://www.google.com/maps?saddr&daddr=44.79647,-91.52086&sensor=false" target="_blank">Get Directions</a>
+   </h4>
+</div>
+<div class="location-column-section">
+    <h4><span class="label label-default">Phone</span> @Umbraco.Field("phoneNumber") </h4>
+    <h4><span class="label label-default">Toll Free</span> @Umbraco.Field("tollFreePhoneNumber") </h4>
+    <h4><span class="label label-default">Fax</span> @Umbraco.Field("faxNumber") </h4>
+</div>
+<div class="location-column-section">
+
+@if (@Model.Content.HasProperty("servicesList"))
+{
+      if (Model.Content.GetPropertyValue<string[]>("servicesList").Length > 0) {
+       <ul class="list-group">
+           <li class="list-group-item active">Location Services</li>
+           @foreach (var item in Model.Content.GetPropertyValue<string[]>("servicesList")) {
+              <li class="list-group-item">@item</li>
+           }
+       </ul>
+    }
+}
+</div>

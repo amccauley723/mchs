@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "Master.cshtml";
+}
+
+<div class="body-margin-location container">
+
+@if (!string.IsNullOrEmpty(Request.QueryString["query"]))    
+{
+    <ul>
+        @foreach (var result in Model.Search(Request.QueryString["query"]))
+        {
+            <li>
+                <a href="@result.Url">@result.Name</a>
+            </li>
+        }
+    </ul>
+} 
+</div>
+

@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@if (Model.Content.HasValue("servicesList"))
+{
+    var tagList = Umbraco.Field("servicesList").ToHtmlString().Split(',');
+
+    <div class="title-panel">
+        <h3>
+            Tags
+        </h3>
+    </div>
+    <div class="latest-updates">
+        <div>
+            <ul class="fa-ul">
+                @foreach (var tag in tagList)
+                {
+                    <li>
+                        <i class="fa-li fa fa-tag"></i>
+                        <a href="/tags?tag=@tag" title="Get content tagged with @tag">
+                            @tag
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div>
+            <ul class="fa-ul">
+                <li>
+                    <i class="fa-li fa fa-tags"></i>
+                    <a href="/tags" title="View tagged content">
+                        Browse tags
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

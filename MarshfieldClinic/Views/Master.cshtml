@@ -2,7 +2,6 @@
 @{
 	Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>@Umbraco.Field("pageName")</title>
+    <title>Marshfield Clinic - @Umbraco.Field("pageName")</title>
+    <link rel="shortcut icon" href="@Umbraco.Media(1371).Url" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -19,27 +19,35 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/site-navigation.css">
+    <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/footer.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     @RenderSection("Head", false)
     @RenderSection("Stylesheets", required: false)
     @RenderSection("Scripts", required: false)
   </head>
   <body>
-    
 @Html.Partial("MainNavigation")
-       
+
+
+@if( Model.Content.HasValue("Hero") )
+{
+    @Html.Partial("Hero")
+}
+
 @RenderBody()
 
 @Html.Partial("Footer")
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/scripts/site-main.js"></script>
-      @RenderSection("ScriptsBottom", false)
+    <script src="/scripts/search-and-type-ahead.js"></script>
+    @RenderSection("ScriptsBottom", false)
   </body>
 </html>

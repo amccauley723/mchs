@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@if(Model.Content.HasValue("Hero")){
+    <div class="body-margin">
+        @if(@CurrentPage.DocumentTypeAlias == "location")
+        {
+            @Html.Partial("location-head")
+        }
+        <img src="@Umbraco.Field("hero")" width="100%"/>
+    </div>
+}

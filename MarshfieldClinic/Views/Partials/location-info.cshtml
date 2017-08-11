@@ -1,0 +1,124 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+<!--LOCATION IMAGE-->
+<img class="common" src="@Umbraco.Field("locationPhoto")" width="100%"/>
+
+<!--LOCATION DESCRIPTION PARAGRAPHS-->
+@if (Model.Content.HasValue("bodyText"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>About @Umbraco.Field("pageName")</h4></div>
+      <div class="panel-body">
+        @Umbraco.Field("bodyText")
+      </div>
+    </div>
+}
+
+<!--URGENT CARE-->
+@if (Model.Content.HasValue("urgentCareDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Urgent Care</h4>
+      @if (CurrentPage.urgentCareHours.Length > 0){
+        foreach (var item in CurrentPage.urgentCareHours)
+            {
+                <span> @item </span>
+            }
+        }
+      </div>
+      <div class="panel-body">
+        @CurrentPage.urgentCareDescription
+      </div>
+    </div>
+}
+
+<!--PHARMACY-->
+@if (Model.Content.HasValue("pharmacyDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Pharmacy</h4>
+      @if (CurrentPage.pharmacyHours.Length > 0){
+        foreach (var item in CurrentPage.pharmacyHours)
+            {
+                <span> @item </span>
+            }
+        }
+      </div>
+      <div class="panel-body">
+        @CurrentPage.pharmacyDescription
+      </div>
+    </div>
+}
+
+<!--OPTICAL-->
+@if (Model.Content.HasValue("opticalDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Optical</h4>
+      @if (CurrentPage.opticalHours.Length > 0){
+        foreach (var item in CurrentPage.opticalHours)
+            {
+                <span> @item </span>
+            }
+        }
+      </div>
+      <div class="panel-body">
+        @CurrentPage.opticalDescription
+      </div>
+    </div>
+}
+
+<!--AMBULATORY SURGERY-->
+@if (Model.Content.HasValue("ambulatorySurgeryCenterDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Ambulatory Surgery Center</h4></div>
+      <div class="panel-body">
+        @CurrentPage.ambulatorySurgeryCenterDescription
+      </div>
+    </div>
+}
+
+<!--Comfort & Recovery Suites-->
+@if (Model.Content.HasValue("comfortAndRecoverySuitesDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Comfort & Recovery Suites</h4></div>
+      <div class="panel-body">
+        @CurrentPage.comfortAndRecoverySuitesDescription
+      </div>
+    </div>
+}
+
+<!--Imaging Center-->
+@if (Model.Content.HasValue("imagingCenterDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Imaging Center</h4></div>
+      <div class="panel-body">
+        @CurrentPage.imagingCenterDescription
+      </div>
+    </div>
+}
+
+<!--MRI-->
+@if (Model.Content.HasValue("mriDescription"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>MRI</h4></div>
+      <div class="panel-body">
+        @CurrentPage.mriDescription
+      </div>
+    </div>
+}
+
+<!--Cosmetic and Plastic Surgery-->
+@if (Model.Content.HasValue("cosmeticAndPlasticSurgery"))
+{
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h4>Cosmetic and Plastic Surgery</h4></div>
+      <div class="panel-body">
+        @CurrentPage.cosmeticAndPlasticSurgery
+      </div>
+    </div>
+}
+

@@ -7,358 +7,50 @@ body {
 .no-padding {
 	padding: 0 !important;
 }
-.body-margin {  
-    margin-top: 185px;
+img.common {
+    border: 6px solid white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
 }
-.body-margin-location {  
-    margin-top: 240px;
-	min-height: 500px;
+span.field-validation-error {
+    color: red;
 }
-.all-the-header {
-	background: #f6f1e5;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	z-index: 999;
+@media screen and (max-width: 930px) {
+	#primary_nav_wrap ul ul li {
+		width: 100%;
+	}
+	#test-logo {
+		width: 60px;
+		height: 75px;
+		background-size: cover;
+		background-position: 0 29px;
+		display: inline-block !important;
+		margin: 20px 0 20px 20px;
+	}
+	#primary_nav_wrap {
+		margin-bottom: 30px;
+	}
+	#primary_nav_wrap ul ul {
+		left: 0;
+		right: 0;
+	}
+	.brandImage {
+		padding-top: 220px !important;
+	}
 }
-#test-logo {
-	width: 120px;
-    height: 120px;
-	background: url(https://s-media-cache-ak0.pinimg.com/originals/14/24/6e/14246e3d1370849f6f119910006be929.jpg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: inline-block !important;
-    margin: 20px;
+@media screen and (max-width: 820px) {
+	#test-logo {
+		display: none !important;
+	}
 }
-a.logo-link {
-    text-decoration: none;
+@media screen and (min-width: 760px) {
+	.topSpacer {
+		height: 220px !important;
+	}
 }
-#primary_nav_wrap {
-	display: inline-block;
-	vertical-align: top;
+@media screen and (max-height: 900px) {
+	.all-the-header {
+		position: absolute !important;
+	}
 }
-#primary_nav_wrap ul {
-	list-style: none;
-	float: left;
-	margin: 0;
-	padding: 25px 0 0;
-}
-#primary_nav_wrap ul li > a {
-	display: block;
-    color: #000000;
-    text-decoration: none;
-    font-weight: 100;
-    font-size: 20px;
-    line-height: 32px;
-    padding: 0 15px;
-}
-#primary_nav_wrap ul li {
-	float: left;
-}
-#primary_nav_wrap ul li:last-child {
-	border-right: none;
-}
-#primary_nav_wrap ul li.current-menu-item {
-	background: #ddd;
-}
-#primary_nav_wrap ul ul {
-	display: none;
-	position: absolute;
-    top: 77px;
-    left: 5%;
-    right: 5%;
-    padding: 40px;
-    background: white;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border-top: 3px solid #179caa;
-}
-        #primary_nav_wrap ul ul ul {
-            border-top: 3px solid #e3e3e3;
-        }
-        #primary_nav_wrap ul ul ul:hover {
-            border-top: 3px solid #179caa;
-        }
-        #primary_nav_wrap ul ul li {
-            float: none;
-            display: inline-block;
-        }
-        #primary_nav_wrap ul ul a {
-            line-height: 120%;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-        #primary_nav_wrap ul li.locations ul a:hover {
-            text-decoration: underline;
-        }
-        #primary_nav_wrap ul ul ul {
-            /*top: 0;*/
-            /*left: 100%;*/
-            display: inline-block;
-            position: relative;
-            width: 200px;
-            left: 0;
-            right: 0;
-            top: 0;
-            box-shadow: none;
-            margin: 0;
-            padding: 0;
-        }
-        #primary_nav_wrap ul li.active > ul {
-            display: block;
-        }
-        #primary_nav_wrap ul ul.explore li {
-            display: block;
-            margin: 0 0 20px 0;
-            border-left: 3px solid #e3e3e3;
-            padding: 0 20px;
-            transition: 0.10s;
-        }
-        #primary_nav_wrap ul ul.explore li:hover {
-            border-left: 3px solid #179caa;
-            margin-left: 5px;
-            transition: 0.10s;
-        }
-        li.dir.locations {
-            width: 32.33%;
-            box-sizing: border-box;
-        }
-        #primary_nav_wrap .heading, .footer-container .heading {
-			font-size: 18px !important;
-			text-transform: uppercase;
-			margin: 0 !important;
-			padding: 10px 0 !important;
-			color: black;
-			font-weight: 300;
-		}
-        #primary_nav_wrap ul ul li ul li {
-            /* float: none; */
-            width: 100%;
-            display: block;
-        }
-        li.hasKids.active {
-            background: #179caa;
-        }
-        li.hasKids.active > a {
-            color: #ffffff !important;
-        }
-        ul.top-level-nav > li {
-            margin: 0;
-            padding: 15px 0;
-            border-top-right-radius: 4px;
-            border-top-left-radius: 4px;
-        }
-		ul.top-level-nav li a {
-			font-weight: 300 !important;
-		}
-        ul.explore p, .findADoctor p {
-            margin: 0;
-            font-size: 14px !important;
-            font-weight: 100;
-        }
-        li.hasKids > a:after {
-            content: "+";
-            margin-left: 10px;
-            display: inline-block;
-            min-width: 12px;
-        }
-        li.hasKids.active > a:after {
-            content: "-";
-            margin-left: 10px;
-            display: inline-block;
-        }
-        /*search elements*/
-        .new-form-container {
-            display: block;
-            clear: both;
-            margin: 0 0 0 15px;
-            box-sizing: border-box;
-        }
-        .new-form-container input {
-            display: inline-block;
-            padding: 14px !important;;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 79%;
-            background: url(http://www.endlessicons.com/wp-content/uploads/2015/08/search-icon-2.png) #fff;
-            background-size: 60px;
-            background-position: 100%;
-            background-repeat: no-repeat;
-            box-sizing: border-box;
-            border: 1px solid #e3e3e3;
-        }
-        .new-form-container button[type="submit"] {
-            border-radius: 4px;
-            padding: 8px;
-            height: 46px;
-            margin: 0 0 0 14px;
-            width: 15%;
-            background: #179caa;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #fff;
-            border: none;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-        .new-form-container button[type="submit"]:hover {
-            transition: 0.15s;
-            background: #11737d;
-        }
-        .doc-form-container {
-            display: inline-block;
-            clear: both;
-            margin: 20px 0 20px 0;
-            box-sizing: border-box;
-            width: 100%;
-            padding-right: 30px;
-        }
-        .doc-form-container input {
-            display: inline-block;
-            padding: 14px !important;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 80%;
-            background: url(http://www.endlessicons.com/wp-content/uploads/2015/08/search-icon-2.png) #fff;
-            background-size: 60px;
-            background-position: 100%;
-            background-repeat: no-repeat;
-            box-sizing: border-box;
-            border: 1px solid #e3e3e3;
-        }
-        .doc-form-container button[type="submit"] {
-            border-radius: 4px;
-            padding: 8px;
-            height: 46px;
-            margin: 0 0 0 14px;
-            width: 14%;
-            background: #179caa;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #fff;
-            border: none;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-        .doc-form-container button[type="submit"]:hover {
-            transition: 0.15s;
-            background: #11737d;
-        }
-        .findADoctor li {
-            margin-right: 30px;
-            vertical-align: top;
-            display: block !important;
-        }
-        .home-specialties {
-            width: 100% !important;
-        }
-        .home-specialties li {
-            display: inline-block !important;
-            width: 27% !important;
-        }
-        .home-specialties li > a:hover {
-            text-decoration: underline !important;
-        }
-        /*quick task elements*/
-        .new-quick-tasks {
-            background: #404040;
-        }
-        .new-quick-tasks a {
-            transition: 0.10s;
-            color: #ffffff;
-            text-transform: uppercase;
-            box-sizing: border-box;
-            width: 33.33%;
-            display: inline-block;
-            line-height: 60px;
-            text-align: center;
-            border-right: 1px solid #848484;
-            white-space: nowrap;
-            text-decoration: none;
-            font-size: 1em;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 100;
-        }
-        .new-quick-tasks a:hover {
-            background: #179CB3;
-        }
-        .new-quick-tasks a:visited {
-            color: white;
-        }
-        .new-quick-tasks a:last-child {
-            border-right: none;
-        }
-/* TYPE AHEAD */
-#typeAheadResults {
-	background: white;
-    padding: 40px;
-    position: absolute;
-    display: none;
-    right: 10%;
-    left: 10%;
-    border-top: 3px solid #179caa;
-	top: 130px;
-}
-#typeAheadResults ul {
-	padding: 0;
-}
-.menu-items ul li {
-    display: block;
-    clear: both;
-}
-#typeAheadResults ul li a {
-    font-size: 14px;
-	color: #404040;
-	padding: 0;
-}
-#typeAheadResults ul li a:hover {
-    color: #179caa;
-}
-div#typeAheadProviders {
-    padding: 20px 0 0 0;
-    border-top: 1px solid #e3e3e3;
-    margin-top: 20px;
-}
-        @media screen and (max-width: 930px) {
-            #primary_nav_wrap ul ul li {
-                width: 100%;
-            }
-            #test-logo {
-                width: 60px;
-                height: 75px;
-                background-size: cover;
-                background-position: 0 29px;
-                display: inline-block !important;
-                margin: 20px 0 20px 20px;
-            }
-            #primary_nav_wrap {
-                margin-bottom: 30px;
-            }
-            #primary_nav_wrap ul ul {
-                left: 0;
-                right: 0;
-            }
-            .brandImage {
-                padding-top: 220px !important;
-            }
-        }
-        @media screen and (max-width: 820px) {
-            #test-logo {
-                display: none !important;
-            }
-        }
-        @media screen and (min-width: 760px) {
-            .topSpacer {
-                height: 220px !important;
-            }
-        }
-        @media screen and (max-height: 900px) {
-            .all-the-header {
-                position: absolute !important;
-            }
-        }
 
